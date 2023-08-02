@@ -1,4 +1,4 @@
-#Binary Converter
+# Binary Converter
 
 Written using Python3 takes an Integer or Binary number as an input
 and performs 2's complement, 1's complement, signed magnitude, and 
