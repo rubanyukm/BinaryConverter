@@ -1,7 +1,8 @@
 
-import numpy as np
+#import numpy as np
 from tkinter import *
 from tkinter import ttk
+import customtkinter
 
 # Class that deals with Binary Inputs
 class BinaryEntered:
@@ -178,9 +179,11 @@ while run:
 
 root = Tk()
 root.title("Binary Converter")
+root.geometry("800x400")
+
 
 mainframe = ttk.Frame(root, padding="3 3 12 12")
-mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
+mainframe.grid(column=0, row=0, sticky="NSEW")
 root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
 
@@ -194,11 +197,11 @@ BinOrInt = IntVar()
 errorMsg = StringVar()
 
 #checkbox to select binary or integer
-ttk.Checkbutton(mainframe, text="Binary", variable=BinOrInt).grid(column=3, row=1, sticky=W)
-ttk.Label(mainframe).grid(column=3, row=0, sticky=W)
+ttk.Checkbutton(mainframe, text="Binary", variable=BinOrInt).grid(column=3, row=1, sticky="NSEW")
+ttk.Label(mainframe).grid(column=3, row=0, sticky="NSEW")
 
 #textbox to display an error message
-ttk.Label(mainframe, textvariable=errorMsg).grid(column=2, row=0, sticky=W)
+ttk.Label(mainframe, textvariable=errorMsg).grid(column=2, row=0, sticky="NSEW")
 
 # Function that converts the binary input to the different types
 def convert():
@@ -227,20 +230,20 @@ def convert():
         return
 
 # Labels and buttons for the GUI
-ttk.Label(mainframe, text="Check the box if you want to enter a binary else enter an int").grid(column=2, row=1, sticky=W)
-ttk.Label(mainframe, text="Number: ").grid(column=1, row=2, sticky=E)
+ttk.Label(mainframe, text="Enter a Number").grid(column=2, row=1, sticky="NSEW")
+ttk.Label(mainframe, text="Number: ").grid(column=1, row=2, sticky="NSEW")
 inputNumEntry = ttk.Entry(mainframe, width=7, textvariable=inputNum)
-inputNumEntry.grid(column=2, row=2, sticky=(W, E))
+inputNumEntry.grid(column=2, row=2, sticky="NSEW")
 
 ttk.Label(mainframe).grid(column=1, row=3, sticky=E)
-ttk.Label(mainframe, textvariable=signedMag).grid(column=2, row=3, sticky=(W, E))
+ttk.Label(mainframe, textvariable=signedMag).grid(column=2, row=3, sticky="NSEW")
 ttk.Label(mainframe).grid(column=1, row=4, sticky=E)
-ttk.Label(mainframe, textvariable=onesComp).grid(column=2, row=4, sticky=(W, E))
+ttk.Label(mainframe, textvariable=onesComp).grid(column=2, row=4, sticky="NSEW")
 ttk.Label(mainframe).grid(column=1, row=5, sticky=E)
-ttk.Label(mainframe, textvariable=twosComp).grid(column=2, row=5, sticky=(W, E))
+ttk.Label(mainframe, textvariable=twosComp).grid(column=2, row=5, sticky="NSEW")
 ttk.Label(mainframe).grid(column=1, row=6, sticky=E)
-ttk.Label(mainframe, textvariable=excess128).grid(column=2, row=6, sticky=(W, E))
+ttk.Label(mainframe, textvariable=excess128).grid(column=2, row=6, sticky="NSEW")
 
-ttk.Button(mainframe, text="Convert", command=convert).grid(column=3, row=2, sticky=W)
+ttk.Button(mainframe, text="Convert", command=convert).grid(column=3, row=2, sticky="NSEW")
 
 root.mainloop()
